@@ -9,6 +9,21 @@ export class AppComponent {
   isAuth: boolean = false;
   textButton : string = "Veuillez patienter pour qu'il s'allume"
 
+  appareils  = [
+    {
+      name: "Machine à laver",
+      status: "éteint"
+    },
+    {
+      name: "Télévision",
+      status: "allumé"
+    },
+    {
+      name:  "Ordinateur",
+      status: "éteint"
+    }
+
+  ];
   constructor() {
     setTimeout(
       () => {
