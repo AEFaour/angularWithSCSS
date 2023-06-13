@@ -7,7 +7,7 @@
         <app-appareil></app-appareil>
         <app-appareil></app-appareil>
       </ul>
-      <button class="btn btn-success" [disabled]="!isAuth" >{{textButton}}</button>
+      <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()" >{{textButton}}</button>
     </div>
   </div>
 </div>

@@ -16,4 +16,9 @@ export class AppComponent {
         this.textButton = "Tout allumé";
       }, 4000);
   }
+
+  onAllumer(){
+    this.isAuth = false;
+    console.log("hello button")
+  }
 }
