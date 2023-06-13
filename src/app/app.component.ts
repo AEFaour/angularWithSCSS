@@ -7,7 +7,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   isAuth: boolean = false;
-  textButton : string = "Veuillez patienter pour qu'il s'allume"
+  textButton : string = "Veuillez patienter pour qu'il s'allume";
+  lastUpdate = new Date();
 
   appareils  = [
     {
