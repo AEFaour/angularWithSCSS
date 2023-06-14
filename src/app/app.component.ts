@@ -8,7 +8,12 @@ import {Component} from '@angular/core';
 export class AppComponent {
   isAuth: boolean = false;
   textButton : string = "Veuillez patienter pour qu'il s'allume";
-  lastUpdate = new Date();
+  lastUpdate = new Promise<Date>(
+    (resolve, reject) => {
+      const date = new Date();
+      setTimeout(() => {resolve(date)}, 2000)
+    }
+  );
 
   appareils  = [
     {
