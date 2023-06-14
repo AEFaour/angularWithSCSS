@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AppareilService} from "./services/appareil.service";
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,7 @@ export class AppComponent {
     }
 
   ];
-  constructor() {
+  constructor(private appareilService : AppareilService) {
     setTimeout(
       () => {
         this.isAuth = true;
@@ -39,7 +40,6 @@ export class AppComponent {
   }
 
   onAllumer(){
-    this.isAuth = false;
-    console.log("hello button")
+    this.appareilService.onAllumer();
   }
 }
