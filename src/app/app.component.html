@@ -10,9 +10,9 @@
           [appareilStutus]="appareil.status"
         >
         </app-appareil>
-
       </ul>
-      <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()" >{{textButton}}</button>
+      <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()">{{textButton}}</button>
+      <button class="btn btn-danger" [disabled]="!isAuth" (click)="onEteindre()">Tout eteint</button>
     </div>
   </div>
 </div>
