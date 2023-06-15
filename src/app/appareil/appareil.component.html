@@ -7,6 +7,7 @@
     [ngStyle]="{color: getColor()}"
   >Appareil : {{appareilName}} - Statut : {{getStatus()}}
   </h4>
+  <a [routerLink]="[id]" >Détail </a>
   <button class="btn btn-success" (click)="onSwitchOn(indexOfApprail)" [disabled]="appareilStutus === 'allumé'">Allumez-moi</button>
   <button class="btn btn-danger" (click)="onSwitchOff(indexOfApprail)" [disabled]="appareilStutus === 'éteint'">Eteignez-moi</button>
 </li>
