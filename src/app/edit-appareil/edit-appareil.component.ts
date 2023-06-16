@@ -7,6 +7,7 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./edit-appareil.component.scss']
 })
 export class EditAppareilComponent implements OnInit {
+  defaultOnOff: string = "éteint";
   constructor() {
   }
 
