@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AppareilService} from "../services/appareil.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-appareil-view',
@@ -8,6 +9,7 @@ import {AppareilService} from "../services/appareil.service";
 })
 export class AppareilViewComponent {
   isAuth: boolean = false;
+  appareilSubscription: Subscription = new Subscription();
   textButton: string = "Veuillez patienter pour qu'il s'allume";
   lastUpdate = new Promise<Date>(
     (resolve, reject) => {
@@ -30,7 +32,13 @@ export class AppareilViewComponent {
   }
 
   ngOnInit(): void {
-    this.appareils = this.appareilService.appareils;
+    //this.appareils = this.appareilService.appareils;
+    this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appareilService.emitAppareilSubject();
   }
 
   onAllumer() {
