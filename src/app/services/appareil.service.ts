@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class AppareilService {
@@ -24,6 +25,9 @@ export class AppareilService {
     }
 
   ];
+
+  constructor(private httpClient: HttpClient) {
+  }
 
   emitAppareilSubject() {
     this.appareilSubject.next(this.appareils.slice());
@@ -78,5 +82,18 @@ export class AppareilService {
       }
     );
     this.emitAppareilSubject();
+  }
+
+  saveAppareilsToServer() {
+    this.httpClient.put(
+      'https://http-form-demo-default-rtdb.firebaseio.com/appareils.json',
+      this.appareils).subscribe(
+      () => {
+        console.log('Enregistrement terminé');
+      },
+      (error) => {
+        console.log("Enregistrement raté car " + error);
+      }
+    );
   }
 }
