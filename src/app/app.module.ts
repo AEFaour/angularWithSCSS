@@ -13,12 +13,16 @@ import { SingleAppareilComponent } from './single-appareil/single-appareil.compo
 import { FourHundredFourComponent } from './four-hundred-four/four-hundred-four.component';
 import {authGuard} from "./services/auth-guard.service";
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
+import {UserService} from "./services/user.service";
+import { UserListComponent } from './user-list/user-list.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 const routes: Routes = [
   {path:'appareils', component: AppareilViewComponent, canActivate: [authGuard]},
   {path:'appareils/:id', component: SingleAppareilComponent, canActivate: [authGuard] },
   {path:'edit', component: EditAppareilComponent, canActivate: [authGuard] },
   {path:'auth', component: AuthComponent },
+  {path:'users', component: UserListComponent},
   {path:'', component: AppareilViewComponent },
   {path:'not-found', component: FourHundredFourComponent },
   {path:'**', redirectTo: "/not-found" }
@@ -32,7 +36,9 @@ const routes: Routes = [
     AppareilViewComponent,
     SingleAppareilComponent,
     FourHundredFourComponent,
-    EditAppareilComponent
+    EditAppareilComponent,
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AppareilService, AuthService],
+  providers: [AppareilService, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

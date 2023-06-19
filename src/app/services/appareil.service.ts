@@ -72,7 +72,7 @@ export class AppareilService {
   addAppareil(name: string, status: string) {
     this.appareils.push(
       {
-        id: this.appareils[(this.appareils.length - 1)].id +1,
+        id: this.appareils[(this.appareils.length - 1)].id + 1,
         name: name,
         status: status
       }

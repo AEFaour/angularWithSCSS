@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppareilService} from "../services/appareil.service";
 import {Subscription} from "rxjs";
 
@@ -7,7 +7,7 @@ import {Subscription} from "rxjs";
   templateUrl: './appareil-view.component.html',
   styleUrls: ['./appareil-view.component.scss']
 })
-export class AppareilViewComponent {
+export class AppareilViewComponent implements OnInit{
   isAuth: boolean = false;
   appareilSubscription: Subscription = new Subscription();
   textButton: string = "Veuillez patienter pour qu'il s'allume";
