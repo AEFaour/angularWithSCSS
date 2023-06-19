@@ -8,7 +8,7 @@ export class AppareilService {
   appareilSubject: Subject<any[]> = new Subject<any[]>();
 
   private appareils = [
-    {
+    /*{
       id: 1,
       name: "Machine à laver",
       status: "éteint"
@@ -22,8 +22,7 @@ export class AppareilService {
       id: 3,
       name: "Ordinateur",
       status: "éteint"
-    }
-
+    }*/
   ];
 
   constructor(private httpClient: HttpClient) {
@@ -95,5 +94,18 @@ export class AppareilService {
         console.log("Enregistrement raté car " + error);
       }
     );
+  }
+  getAppareilsFromServer(){
+    this.httpClient.get<any[]>(
+      'https://http-form-demo-default-rtdb.firebaseio.com/appareils.json').subscribe(
+      (response) => {
+        this.appareils = response;
+        this.emitAppareilSubject();
+      },
+      (error) => {
+        console.log("Chargement raté car " + error);
+      }
+
+    )
   }
 }
